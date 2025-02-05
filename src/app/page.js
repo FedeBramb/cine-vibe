@@ -14,10 +14,10 @@ const Page = async () => {
     }
     )
   )
-  
+
   return (
     <div className="">
-      <MovieBanner videoUrl={'https://cs39.clideo.com/p/FRQkgkvE6gDXg4JfOZWhaQ/8890e0a993227d4ab8297fc46038f33f/sonic-the-hedgehog-3-official-trailer-2024-movie-ben-schwartz-jim-carrey_IrZ4Wtd6.mp4'}></MovieBanner>
+      <MovieBanner videoUrl={'https://res.cloudinary.com/dzm2ylhty/video/upload/v1738772220/ydkbawrwcv3evypi8ubh.mp4'}></MovieBanner>
       <main className="">
         {categoriesData.map((categoryData) => (
           <Categories 

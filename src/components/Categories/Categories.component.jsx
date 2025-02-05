@@ -18,19 +18,22 @@ const Categories = ({ categoryData }) => {
   const { name, movies} = categoryData;
 
   return (
-    <Swiper
-      slidesPerView={7}
-      spaceBetween={8}
-      navigation={true}
-      modules={[Navigation]}
-      className="mySwiper"
-    >
-      {movies.map(movie => (
-        <SwiperSlide key={movie.id}> 
-          <MovieCard movie={movie} />
-        </SwiperSlide>
-      ))}   
-    </Swiper>
+    <>
+      <h3>{name}</h3>
+      <Swiper
+        slidesPerView={7}
+        spaceBetween={8}
+        navigation={true}
+        modules={[Navigation]}
+        className="mySwiper"
+      >
+        {movies.map(movie => (
+          <SwiperSlide key={movie.id}> 
+            <MovieCard movie={movie} />
+          </SwiperSlide>
+        ))}   
+      </Swiper>
+    </>
   )
 }
 
