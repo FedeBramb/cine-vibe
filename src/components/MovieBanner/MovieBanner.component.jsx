@@ -26,7 +26,7 @@ const MovieBanner = ({ videoUrl }) => {
   useEffect(() => {
     setTimeout(() => {
       setSettings((prevState) => ({ ...prevState, isShowVideo: true }))
-    }, 1000)
+    }, 5000)
   }, [])
 
   if (!settings.isClient) {

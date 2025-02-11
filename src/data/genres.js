@@ -1,27 +1,27 @@
 // utils/genres.js
 const genresMap = {
-    28: "Action",
-    12: "Adventure",
-    16: "Animation",
+    28: "Azione",
+    12: "Avventura",
+    16: "Animazione",
     35: "Comedy",
     80: "Crime",
-    99: "Documentary",
+    99: "Documentario",
     18: "Drama",
     10751: "Family",
     14: "Fantasy",
-    36: "History",
+    36: "Storico",
     27: "Horror",
-    10402: "Music",
-    9648: "Mystery",
-    10749: "Romance",
+    10402: "Musical",
+    9648: "Mistero",
+    10749: "Romantico",
     878: "Science Fiction",
-    10770: "TV Movie",
+    10770: "Film Tv",
     53: "Thriller",
-    10752: "War",
+    10752: "Guerra",
     37: "Western",
 };
 
 export const findGenres = (genre_ids) => {
-    return genre_ids.map(id => genresMap[id] || "Unknown").join(", ")
+    return genre_ids.map(({id, name}) => genresMap[id] || "Unknown")
 }
   
