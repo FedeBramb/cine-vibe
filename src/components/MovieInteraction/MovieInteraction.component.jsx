@@ -1,12 +1,11 @@
-'use client';
-
 import React from 'react';
 import { Play, Plus, Star } from "lucide-react";
 import ProgressCircle from '@/components/MovieInteraction/ProgressCircle.component';
 
-const MovieInteraction = ({ sizes, value }) => {
+// Renderizza tasti Play, Plus e ProgressCircle
+const MovieInteraction = ({ sizes, value, background }) => {
     return (
-      <div className='flex gap-4 h-16'>
+      <div className={`realtive z-50 flex gap-4 h-16 ${background}`}>
           <div className='center-flex icon-movie' >
               <Play size={sizes[0]} color="white" />
           </div>
@@ -19,7 +18,7 @@ const MovieInteraction = ({ sizes, value }) => {
           <ProgressCircle value={value} />
       </div>
     )
-  }
+  } 
   
 
 export default MovieInteraction

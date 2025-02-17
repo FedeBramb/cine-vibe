@@ -1,0 +1,57 @@
+.swiper {
+    width: 100%;
+    position: relative;
+    overflow: visible;
+    -webkit-user-select: none; /* Per Safari e iOS */
+    user-select: none; /* Evita selezioni dell'utente al contenuto */
+}
+  
+.swiper-slide {
+    position: relative;
+    width: 190px;
+    height: 285px;
+    text-align: center;
+    font-size: 18px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+    z-index: 49;
+    border: none; /* Elimina qualsiasi bordo */
+    outline: none; /* Elimina eventuali contorni */
+    will-change: transform;
+}
+
+.swiper-slide img {
+    transition: transform 0.3s ease;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  
+.swiper-slide:hover img {
+    transform: scale(1.2);
+    z-index: 10; /* Assicura che l'immagine resti sopra gli altri elementi */
+    position: relative; /* Permette all'immagine di essere sopra gli altri elementi */
+}
+
+
+/* Cambia il colore delle frecce */
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+    color: #ffffff; /* Colore delle frecce */
+    transition: transform 0.2s ease-in-out;
+    font-weight: bold;
+}
+
+/* Al passaggio del mouse, ingrandisce le frecce */
+.mySwiper .swiper-button-next:hover,
+.mySwiper .swiper-button-prev:hover {
+  transform: scale(1.2); /* Ingrandisce leggermente */
+}

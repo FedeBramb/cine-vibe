@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 
-import { findGenres } from "@/data/genres";
+import { findGenres } from "@/utils/genres";
 
 const MovieCard = ({ movie }) => {
     
@@ -15,10 +15,8 @@ const MovieCard = ({ movie }) => {
           width={500} // Valore iniziale, poi ridimensionato con CSS
           height={300} 
           className="w-full h-auto object-cover"
+          priority
         />
-        {/* <span className="valutazione">{movie.vote_average}</span>
-        <span className="anno">{movie.release_date}</span>
-        <span className="genere">{findGenres(movie.genre_ids)}</span> */}
       </div>
     </>
   )

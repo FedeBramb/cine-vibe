@@ -22,6 +22,11 @@ const genresMap = {
 };
 
 export const findGenres = (genre_ids) => {
-    return genre_ids.map(({id, name}) => genresMap[id] || "Unknown")
-}
-  
+    if (Array.isArray(genre_ids)) {
+        return genre_ids.map(id => genresMap[id] || "Unknown");
+    }
+    return genresMap[genre_ids] || "Unknown";
+};
+// export const findGenre = (genre_name) => {
+//     return 
+// }

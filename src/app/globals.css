@@ -21,12 +21,24 @@ body {
   background: var(--background);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.6rem; /* Riporta a 16px il testo */
+  overflow-x: hidden; /* permetto di abilitare overflow visible su swiper*/
 }
 
 h1 {
   font-size: 7.5rem;
 }
 
+h3 {
+  font-size: 3.5rem;
+}
+
+.navbar-gradient {
+  background: rgb(33,33,33);
+  background: -moz-linear-gradient(0deg, rgba(33,33,33,1) 0%, rgba(19,19,19,1) 41%, rgba(0,0,0,1) 100%);
+  background: -webkit-linear-gradient(0deg, rgba(33,33,33,1) 0%, rgba(19,19,19,1) 41%, rgba(0,0,0,1) 100%);
+  background: linear-gradient(0deg, rgba(33,33,33,1) 0%, rgba(19,19,19,1) 41%, rgba(0,0,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#212121",endColorstr="#000000",GradientType=1);
+}
 .center-flex {
   @apply flex items-center justify-center;
 }
@@ -49,4 +61,12 @@ h1 {
 
 .active-tab {
   @apply w-full bg-green-600 rounded-t-xl z-50 mt-2
+}
+
+.overlay-buttons {
+  @apply w-60 px-3 py-3 rounded text-3xl font-bold center-flex gap-4
+}
+
+.black-shadow {
+  text-shadow: 1px 1px 8px rgb(255, 255, 255);
 }

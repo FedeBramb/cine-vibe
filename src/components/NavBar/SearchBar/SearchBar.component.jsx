@@ -13,7 +13,7 @@ const SearchBar = () => {
     };
 
   return (
-    <div>
+    <div className='center-flex'>
         <Image 
             src='/svgs/search.svg' 
             width={23} 
@@ -28,7 +28,6 @@ const SearchBar = () => {
             className='text-white bg-black'
         />
         <div className='dropdown'>
-
         </div>
     </div>
   )

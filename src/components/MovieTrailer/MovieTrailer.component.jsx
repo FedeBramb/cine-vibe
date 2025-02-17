@@ -3,7 +3,7 @@ import React from 'react';
 const MovieTrailer = ({ trailerData }) => {
     if (!trailerData) return <p>Loading...</p>;
   return (
-    <div className="flex items-center mb-5">
+    <div className="flex items-center ">
       <iframe
         width="350"
         height="250"

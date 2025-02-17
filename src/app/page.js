@@ -1,31 +1,47 @@
-import { fetchCategoriesMovies } from "@/utils/api";
+import { Fragment } from "react";
+import Link from "next/link";
+import { getCategories } from "@/utils/api";
 import { categories_map } from "@/data/categories_map";
 
-import Categories from "@/components/Categories/Categories.component";
+import Category from "@/components/PreviewCategory/PreviewCategory.component";
 import MovieBanner from "@/components/MovieBanner/MovieBanner.component";
-
+import BrowseArrow from "@/components/BrowseArrow/BrowseArrow.component";
 
 // Homepage, vengono mostrati i caroselli per ogni categoria di films.
 const Page = async () => {
+  const videoUrl = 'https://res.cloudinary.com/dzm2ylhty/video/upload/v1738772220/ydkbawrwcv3evypi8ubh.mp4';
+
   const categoriesData = await Promise.all(
     categories_map.map(async (category) => {
-      const movie = await fetchCategoriesMovies(category);
+      const movie = await getCategories(category);
       return { ...category, ...movie };
-    }
-    )
-  )
+    })
+  );
+  console.log("categoriesData", categoriesData)
 
   return (
-    <div className="">
-      <MovieBanner videoUrl={'https://res.cloudinary.com/dzm2ylhty/video/upload/v1738772220/ydkbawrwcv3evypi8ubh.mp4'}></MovieBanner>
-      <main className="">
-        {categoriesData.map((categoryData) => (
-          <Categories 
-            categoryData={categoryData} 
-            index={categoryData.endpoint} 
+    <div className="relative">
+      <MovieBanner videoUrl={videoUrl} />
+      <div className="absolute top-[80vh] w-full h-screen px-[70px]">
+      {categoriesData.map((categoryData, index) => (
+        <Fragment key={`${categoryData.name}-${index}`}>
+          <Link 
+            href={`/category/${categoryData.endpoint}`}
+            className='group flex items-baseline gap-2 text-3xl font-bold relative mt-16'
+          >
+            <h3 className="font-bold text-3xl">
+              {categoryData.name}
+            </h3>
+            <BrowseArrow />
+          </Link>
+          <Category 
+            movies={categoryData.movies} 
+            index={categoryData.endpoint}
           />
-        ))}
-      </main>
+        </Fragment>
+      ))}
+
+      </div>
       <footer className="">
         
       </footer>
@@ -36,6 +52,10 @@ const Page = async () => {
 export default Page;
 
 /**
+ * 
+ * cose da fare:
+ * - loading.js e notfound.js per caricamento e gestione errori
+ * - salvare apikey in embeed variable
  * struttura provvisoria route:
  * /app
   /page.js          <-- Homepage con i caroselli

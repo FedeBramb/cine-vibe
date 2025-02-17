@@ -10,6 +10,9 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "#ffffff",
+        secondary: "",
+        azureText: "#54b9c5",
       },
       backgroundImage: {
         'movie-overlay': 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgba(255,255,255,0) 100%)',
