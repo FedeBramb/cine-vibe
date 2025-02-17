@@ -5,8 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import Link from 'next/link';
 
-import MovieCard from '../MovieCard/MovieCard.component';
-import MovieInteraction from '../MovieInteraction/MovieInteraction.component';
+import MovieCard from '../../MovieCard/MovieCard.component';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -30,13 +29,6 @@ const PreviewCategory = ({ movies }) => {
             <SwiperSlide key={movie.id}>
               <Link href={`/movie/${movie.id}`} className='relative'>
                 <MovieCard movie={movie} />
-                {/* <div className='ciao'>
-                  <MovieInteraction 
-                    sizes={{ play: 20, plus: 25, star: 30, progress: 80 }}
-                    value={77}
-                    background='bg-black'
-                    />
-                </div> */}
               </Link>
             </SwiperSlide>
           ))}   

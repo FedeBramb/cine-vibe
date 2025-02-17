@@ -6,7 +6,7 @@ import SearchBar from './SearchBar/SearchBar.component';
 
 const routes = [
   ['home', '/'],
-  ['film', '/genres'],
+  ['generi', '/genres'],
   ['series', '/series'], 
   ['actors', './actors']
 ];

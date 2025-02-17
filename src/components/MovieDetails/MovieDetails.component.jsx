@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 
 import MovieTrailer from '../MovieTrailer/MovieTrailer.component';
-import TabsButtons from './TabsButtons/TabsButtons.component';
+import TabsButtons from './TabsButtons.component';
 import Overview from './OverviewTab/OverviewTab.component';
 import DetailsTab from './DetailsTab/DetailsTab.component';
 

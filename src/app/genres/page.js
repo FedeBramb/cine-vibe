@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { getGenres, getMovies } from '@/utils/api';
 
-import Category from '@/components/PreviewCategory/PreviewCategory.component';
+import Category from '@/components/PreviewsCategory/Preview/PreviewCategory.component';
 import BrowseArrow from '@/components/BrowseArrow/BrowseArrow.component';
 
 const genresPage = async () => {

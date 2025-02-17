@@ -1,10 +1,13 @@
 import React from 'react';
 import { getImageProps } from 'next/image';
 
-import MovieDetails from '@/components/MovieDetails/MovieDetails.component';
-import { getSingleMovie, getLogoMovie, getCasting, getTrailer } from '@/utils/api';
+import { getSingleMovie, getLogoMovie, getCasting, getTrailer, getMovies } from '@/utils/api';
 import { findGenres } from '@/utils/genres';
 import { getBackgroundImage } from '@/utils/image-functions.js';
+import { categories_map } from '@/data/categories_map';
+
+import MovieDetails from '@/components/MovieDetails/MovieDetails.component';
+import PreviewsCategory from '@/components/PreviewsCategory/PreviewsCategory.component';
 
 // Server Component, gestisce ed estrapola solo i dati che servono al client
 const MoviePage = async ({ params }) => {
@@ -13,6 +16,14 @@ const MoviePage = async ({ params }) => {
   const logoPath = await getLogoMovie(id);
   const casting = await getCasting(id);
   const trailer = await getTrailer(id);
+
+  const categoriesData = await Promise.all(
+      categories_map.map(async (category) => {
+        const movie = await getMovies(category.endpoint);
+        return { ...category, ...movie };
+      })
+    );
+  console.log("categories moviepage:", categoriesData);
 
   const {
     title,
@@ -60,9 +71,8 @@ const MoviePage = async ({ params }) => {
 
   return (
     <>
-      <MovieDetails 
-        movieData={movieData}
-      />
+      <MovieDetails movieData={movieData} />
+      <PreviewsCategory categoriesData={categoriesData} />
     </>
   );
 };

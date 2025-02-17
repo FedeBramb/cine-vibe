@@ -6,21 +6,22 @@ const API_KEY = 'e18d9eb8344cbdbbbb5c3e86630a2b7d';
 const BASE_URL = "https://api.themoviedb.org/3/";
 
 // Restituisce nome categoria e film correlati.
-export const getCategories = cache(async ({ name, endpoint }) => {
-  try {
-    const { data } = await axios.get(
-      `${BASE_URL}movie/${endpoint}?api_key=${API_KEY}&language=it-IT&page=1`);
+// export const getCategories = cache(async ({ name, endpoint }) => {
+//   try {
+//     const { data } = await axios.get(
+//       `${BASE_URL}movie/${endpoint}?api_key=${API_KEY}&language=it-IT&page=1`);
 
-    return {
-      name: name,
-      movies: data.results.slice(0, 12)
-    };
-  } catch (error) {
-    console.error('Errore nel recupero dei dati:', error);
-    return []; 
-  }
-});
+//     return {
+//       name: name,
+//       movies: data.results.slice(0, 12)
+//     };
+//   } catch (error) {
+//     console.error('Errore nel recupero dei dati:', error);
+//     return []; 
+//   }
+// });
 
+// Ottiene la lista dei generi
 export const getGenres = cache(async () => {
   try {
     const { data } = await axios.get(

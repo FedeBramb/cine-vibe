@@ -1,11 +1,10 @@
 import { Fragment } from "react";
 import Link from "next/link";
-import { getCategories } from "@/utils/api";
+import { getMovies } from "@/utils/api";
 import { categories_map } from "@/data/categories_map";
 
-import Category from "@/components/PreviewCategory/PreviewCategory.component";
 import MovieBanner from "@/components/MovieBanner/MovieBanner.component";
-import BrowseArrow from "@/components/BrowseArrow/BrowseArrow.component";
+import PreviewsCategory from "@/components/PreviewsCategory/PreviewsCategory.component";
 
 // Homepage, vengono mostrati i caroselli per ogni categoria di films.
 const Page = async () => {
@@ -13,34 +12,17 @@ const Page = async () => {
 
   const categoriesData = await Promise.all(
     categories_map.map(async (category) => {
-      const movie = await getCategories(category);
+      const movie = await getMovies(category.endpoint);
       return { ...category, ...movie };
     })
   );
-  console.log("categoriesData", categoriesData)
 
+  
   return (
     <div className="relative">
       <MovieBanner videoUrl={videoUrl} />
-      <div className="absolute top-[80vh] w-full h-screen px-[70px]">
-      {categoriesData.map((categoryData, index) => (
-        <Fragment key={`${categoryData.name}-${index}`}>
-          <Link 
-            href={`/category/${categoryData.endpoint}`}
-            className='group flex items-baseline gap-2 text-3xl font-bold relative mt-16'
-          >
-            <h3 className="font-bold text-3xl">
-              {categoryData.name}
-            </h3>
-            <BrowseArrow />
-          </Link>
-          <Category 
-            movies={categoryData.movies} 
-            index={categoryData.endpoint}
-          />
-        </Fragment>
-      ))}
-
+      <div className="absolute top-[80vh] w-full h-screen">
+        <PreviewsCategory categoriesData={categoriesData} />
       </div>
       <footer className="">
         
